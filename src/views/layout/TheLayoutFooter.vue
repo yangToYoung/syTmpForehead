@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    MIT Licensed | Copyright © 2019-present yyj
+    SuYuan Tech | Copyright © 2019-present yyj
   </footer>
 </template>
 

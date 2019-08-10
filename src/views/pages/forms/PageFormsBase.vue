@@ -14,24 +14,6 @@
                   <el-option label="区域二" value="beijing"></el-option>
                 </el-select>
               </el-form-item>
-              <el-form-item label="活动时间" required>
-                <el-col :span="11">
-                  <el-form-item prop="date1">
-                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1"
-                                    style="width: 100%;"></el-date-picker>
-                  </el-form-item>
-                </el-col>
-                <el-col class="line" :span="2">-</el-col>
-                <el-col :span="11">
-                  <el-form-item prop="date2">
-                    <el-time-picker type="fixed-time" placeholder="选择时间" v-model="ruleForm.date2"
-                                    style="width: 100%;"></el-time-picker>
-                  </el-form-item>
-                </el-col>
-              </el-form-item>
-              <el-form-item label="即时配送" prop="delivery">
-                <el-switch v-model="ruleForm.delivery"></el-switch>
-              </el-form-item>
               <el-form-item label="活动性质" prop="type">
                 <el-checkbox-group v-model="ruleForm.type">
                   <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
@@ -56,42 +38,6 @@
             </el-form>
           </el-card>
         </el-tab-pane>
-        <el-tab-pane label="Upload" name="second">
-          <el-card shadow="hover">
-            <el-upload
-              class="upload-demo"
-              action="https://jsonplaceholder.typicode.com/posts/"
-              multiple
-              :limit="3"
-              :file-list="fileList">
-              <el-button size="small" type="primary">点击上传</el-button>
-              <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-            </el-upload>
-          </el-card>
-          <br/>
-          <el-card shadow="hover">
-            <el-upload
-              class="upload-demo"
-              drag
-              action="https://jsonplaceholder.typicode.com/posts/"
-              multiple>
-              <i class="el-icon-upload"></i>
-              <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-              <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
-            </el-upload>
-          </el-card>
-        </el-tab-pane>
-        <el-tab-pane label="Transfer" name="third">
-          <el-card shadow="hover">
-            <el-transfer
-              filterable
-              :filter-method="filterMethod"
-              filter-placeholder="请输入城市拼音"
-              v-model="value2"
-              :data="data2">
-            </el-transfer>
-          </el-card>
-        </el-tab-pane>
       </el-tabs>
     </el-card>
   </div>
@@ -103,15 +49,6 @@ export default {
   data () {
     const generateData2 = () => {
       const data = []
-      const cities = ['上海', '北京', '广州', '深圳', '南京', '西安', '成都']
-      const pinyin = ['shanghai', 'beijing', 'guangzhou', 'shenzhen', 'nanjing', 'xian', 'chengdu']
-      cities.forEach((city, index) => {
-        data.push({
-          label: city,
-          key: index,
-          pinyin: pinyin[index]
-        })
-      })
       return data
     }
     return {
@@ -177,14 +114,6 @@ export default {
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()
-    },
-    handleExceed (files, fileList) {
-      this.$message.warning('当前限制选择 3 个文件，本次选择了' + files.length +
-        ' 个文件，共选择了 ' + (files.length + fileList.length) + ' 个文件'
-      )
-    },
-    beforeRemove (file, fileList) {
-      return this.$confirm('确定移除 ' + file.name + '}？')
     }
   }
 }

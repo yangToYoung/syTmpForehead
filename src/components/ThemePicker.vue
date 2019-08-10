@@ -1,4 +1,4 @@
-<template>
+<!--<template>
   <el-color-picker
     v-model="theme"
     class="theme-picker"
@@ -141,4 +141,4 @@ export default {
 .theme-picker-dropdown .el-color-dropdown__link-btn {
   display: none;
 }
-</style>
+</style>--!>

@@ -44,12 +44,6 @@ const staticRouter = [
           }
         ]
       }, {
-        path: '/charts',
-        name: 'charts',
-        title: 'menu.chart',
-        icon: 'el-icon-picture',
-        component: () => import('@/views/pages/PageCharts')
-      }, {
         path: '/errorDemo',
         name: 'errorDemo',
         title: 'menu.error',
@@ -57,12 +51,6 @@ const staticRouter = [
         component: () => import('@/views/layout/TheLayoutEmpty'),
         children: [
         ]
-      }, {
-        path: '/drag',
-        name: 'drag',
-        title: 'menu.drag',
-        icon: 'el-icon-rank',
-        component: () => import('@/views/pages/PageDrag')
       }, {
         path: '/user',
         name: 'user',
